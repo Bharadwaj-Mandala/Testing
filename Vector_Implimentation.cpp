@@ -1,12 +1,14 @@
 #include <iostream>
 using namespace std;
 
-static int counter = 0;
+// static int counter = 0;
 
 template <class type>
 class vector
 {
 private:
+	static inline int counter = 0;
+	// static int counter;
 	int length;
 	int capacity;
 	type *ptr;
@@ -41,6 +43,9 @@ public:
 		}
 	}
 };
+
+// template <typename type>
+// int vector<type>::counter = 0;
 
 int main()
 {
