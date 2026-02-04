@@ -1,38 +1,23 @@
 #include <iostream>
-#include <memory>
-#include <vector>
-#include <algorithm>
 using namespace std;
 
-class Testing
+template <class type>
+type big(type a, type b)
 {
-public:
-	void operator()(int x)
+	if (a > b)
 	{
-		if (x % 2 == 0)
-		{
-			cout << "Even" << x << endl;
-		}
-		else
-		{
-			cout << "Odd" << x << endl;
-		}
+		return a;
 	}
-};
-
-void f1()
-{
-	int a = 10;
-	int *p = NULL;
-
-	*p = 20;
-	cout << *p;
+	else
+	{
+		return b;
+	}
 }
 
 int main()
 {
-	int *p = new int;
-	*p = 10;	
-
+	cout << big(10, 20) << endl;
+	cout << big(1.5, 2.9) << endl;
+	cout << big('s', 'f') << endl;
 	return 0;
 }
