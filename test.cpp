@@ -31,7 +31,7 @@ void f1()
 
 int main()
 {
-	new int;
+	int *p = new int;
 
 	return 0;
 }
