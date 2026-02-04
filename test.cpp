@@ -2,17 +2,24 @@
 using namespace std;
 
 template <class type>
-type big(type a, type b)
+class vector
 {
-	if (a > b)
+private:
+	int capacity;
+	type *ptr;
+
+public:
+	vector(int capacity)
 	{
-		return a;
+		this->capacity = capacity;
+		*ptr = new type[capacity];
 	}
-	else
+
+	void insert(type data)
 	{
-		return b;
+		*ptr
 	}
-}
+};
 
 int main()
 {
