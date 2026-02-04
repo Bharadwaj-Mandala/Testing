@@ -19,5 +19,6 @@ int main()
 	cout << big(10, 20) << endl;
 	cout << big(1.5, 2.9) << endl;
 	cout << big('s', 'f') << endl;
+	cout << big(111, 29) << endl;
 	return 0;
 }
