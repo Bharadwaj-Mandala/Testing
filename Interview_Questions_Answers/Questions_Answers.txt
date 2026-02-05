@@ -1,0 +1,9 @@
+1)      Difference between c structure and c++ structure ?
+Ans)        struct key word mandatory in c.
+            No methods implimentation support in c.
+            No access specifiers support in c like private, protected and public.
+
+2)      Difference between structure and class in c++ ?
+Ans)        By default access specifiers are public for structure and private for class.
+
+3)      
