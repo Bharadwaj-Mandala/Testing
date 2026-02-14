@@ -6,4 +6,111 @@ Ans)        struct key word mandatory in c.
 2)      Difference between structure and class in c++ ?
 Ans)        By default access specifiers are public for structure and private for class.
 
-3)      
+3)      Why virtual is used for functions and destructors but not for constructors ?
+ Ans)       #include <iostream>
+            using namespace std;
+
+            class A
+            {
+            public:
+                int a;
+
+                A()
+                {
+                    cout << "A Constructor" << endl;
+                }
+
+                ~A()
+                {
+                    cout << "A Desructor" << endl;
+                }
+            };
+
+            class B : public A
+            {
+            public:
+                int b;
+
+                B()
+                {
+                    cout << "B Constructor" << endl;
+                }
+                ~B()
+                {
+                    cout << "B Desructor" << endl;
+                }
+            };
+
+            class C : public B
+            {
+            public:
+                int c;
+                C()
+                {
+                    cout << "C Constructor" << endl;
+                }
+                ~C()
+                {
+                    cout << "C Desructor" << endl;
+                }
+            };
+
+            class D : public C
+            {
+            public:
+                int d;
+                D()
+                {
+                    cout << "D Constructor" << endl;
+                }
+                ~D()
+                {
+                    cout << "D Desructor" << endl;
+                }
+            };
+
+            void fun()
+            {
+                A *a = new D;
+                delete a;
+            }
+
+            int main()
+            {
+                fun();
+            }
+
+            /*
+                        why no virtual constructor ?
+                        During dymanic object creation,
+                            Base *b = new Derived;
+                        Here only object pointer is created, where as the actual
+                        object is created during run time, so as there is no
+                        object created, no constructor is called.
+
+                        But during runtime when the object is created the
+                        actual matching constructor is binded and there upon
+                        calling the parent constructors.
+
+                        But in the case of deleting the dynamically
+                        created object,
+                            delete b;
+                        during compilation time the actual object is
+                        unknown, so the compiler binds the call
+                            delete b;
+                        with the base class destructor thus neglecting
+                        the derived class destructors thus may lead to
+                        memory leaks.
+
+                        In order to avoid these issues, we use virtual
+                        destructors but not virtual constructors
+
+                        The same happens with the over rided functions, 
+                        during compilation time the actual object is unknown,
+                        the compiler binds the function call with the funtion
+                        defination of the pointer type class, insted of binding
+                        with object type class (over rided function).
+
+                        Thus in order to solve this problem we use
+                        virtual functions.
+            */
